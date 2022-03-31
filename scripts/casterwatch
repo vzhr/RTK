@@ -6,11 +6,11 @@ if [ $1 ]; then
 	SUBPATH="/$1";
 fi
 
-SBINDIR=/usr/local/ntripcaster/sbin
+SBINDIR=/opt/ntripcaster2/sbin
 CASTER=$SBINDIR/ntripdaemon
-VARDIR=/usr/local/ntripcaster/var
-LOGDIR=/usr/local/ntripcaster/logs$SUBPATH
-CONFDIR=/usr/local/ntripcaster/conf$SUBPATH
+VARDIR=/opt/ntripcaster2/var
+LOGDIR=/opt/ntripcaster2/logs$SUBPATH
+CONFDIR=/opt/ntripcaster2/conf$SUBPATH
 PIDFILE=$VARDIR/caster$SUBNAME.pid
 STARTFILE=$VARDIR/starttime$SUBNAME.txt
 WATCHFILE=$VARDIR/watchdog$SUBNAME.check

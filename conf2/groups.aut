@@ -1,0 +1,28 @@
+# Group authentication file.
+# Here you list all groups and their members (users), one line per
+# group.
+#
+# Syntax: <GROUP>:<USER1>,<USER2>,...,<USERn>[:<MAX_NUM_CON>]
+#
+# <GROUP>: name of the group.
+# <USERi>: name of user belonging to <GROUP>.
+# <MAX_NUM_CON>: optional specification of maximal number of
+# simultaneous connections for <GROUP>. If not specified, an
+# infinite number of connections will be allowed.
+
+#normal user group
+#max 100 users in group gpsclient online in same time
+#gpsclient:gps1,gps2,gps3,gps4,gps5,gps6:100
+
+#dofuntech user group
+juniongroup:junion01,junion02,junion03,junion04,junion05,junion06
+
+#test for one id, multi client, 10 users use this id
+gtest:test:ip10
+
+
+#uploader group
+guploader:uploader0,uploader1
+
+#administrations group
+FirstAdmin:junionadmin

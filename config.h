@@ -54,7 +54,7 @@
 /* #undef HAVE_LIBDL */
 
 /* Define to 1 if you have the `ldap' library (-lldap). */
-/* #undef HAVE_LIBLDAP */
+#define HAVE_LIBLDAP 1
 
 /* Define to 1 if you have the `readline' library (-lreadline). */
 /* #undef HAVE_LIBREADLINE */

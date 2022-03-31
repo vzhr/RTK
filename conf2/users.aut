@@ -1,0 +1,29 @@
+# User authentication file.
+# Here you list all the users with their passwords, one l
+#
+# # <PASSWORD>: password of <USER>.
+
+
+################ junion client user ##################
+junion01:123456
+junion02:123456
+junion03:123456
+junion04:123456
+junion05:123456
+junion06:123456
+################ end of junion #######################
+
+
+################ Uploader user ##########################
+uploader0:uploader001
+uploader1:uploader001
+########################################################
+
+
+test:test123
+
+################# other user ###########################
+junionadmin:junionadmin
+
+
+########################################################

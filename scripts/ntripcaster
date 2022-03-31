@@ -6,8 +6,8 @@ if [ $2 ]; then
         SUB=$2
 fi
 
-BINDIR=/usr/local/ntripcaster/bin
-VARDIR=/usr/local/ntripcaster/var
+BINDIR=/opt/ntripcaster2/bin
+VARDIR=/opt/ntripcaster2/var
 PIDFILE=$VARDIR/caster$SUBNAME.pid
 WATCHPIDFILE=$VARDIR/casterwatch$SUBNAME.pid
 
