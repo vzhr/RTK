@@ -49,7 +49,7 @@
 
 [参考配置ublox zed-f9p](https://blog.csdn.net/m0_48012049/article/details/107882430)
 
-[参考配置ublox zed-f9p](https://learn.sparkfun.com/tutorials/getting-started-with-u-center-for-u-blox)
+[参考配置2](https://learn.sparkfun.com/tutorials/getting-started-with-u-center-for-u-blox)
 
 ![截图 2022-01-12 10.55.25-fullpage1](fullpage.png)
 
