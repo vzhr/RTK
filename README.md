@@ -14,13 +14,13 @@
 | 6    | 波特率选择115200                                             |
 | 7    | 点击左下角send                                               |
 | ８   | 继续在UBX-CFG下选择 MSG                                      |
-| 9    | 在弹出的界面下拉框中依次选择RTCM3.3 1005~1230, 1450          |
+| 9    | 在弹出的界面下拉框中依次选择RTCM3.3  ,1005,1074,1077,1084,1087,1094,1097,1124,1127,1230x5, 1450, |
 | 10   | 勾选UART1，usb选项                                           |
 | 11   | 选择Send，发送完成                                           |
 | 12   | 继续在UBX-CFG下选择TMODE3                                    |
 | 13   | Mode选择Survey-in                                            |
 | 14   | 观测时间选择２００ｓ                                         |
-| 15   | 定位精度选择３米                                             |
+| 15   | 定位精度选择３米(官方推荐是60s, 5米)                         |
 | 16   | 选择Send，发送完成                                           |
 | 17   | 查看基准站RTCM信息是否输出：打开RTCM3，下拉框，如果选项中灰度都显示亮正常，表示基准站已经正常获取到RTCM数据 |
 | 18   | 继续在UBX-CFG下选择CFG                                       |
@@ -49,7 +49,9 @@
 
 [参考配置ublox zed-f9p](https://blog.csdn.net/m0_48012049/article/details/107882430)
 
-![截图 2022-01-12 10.55.25-fullpage1](../assets/%E6%88%AA%E5%9B%BE%202022-01-12%2010.55.25-fullpage1-164869080994520.png)
+[参考配置ublox zed-f9p](https://learn.sparkfun.com/tutorials/getting-started-with-u-center-for-u-blox)
+
+![截图 2022-01-12 10.55.25-fullpage1](fullpage.png)
 
 
 
@@ -187,17 +189,37 @@ sudo make install
 ```bash
 #挂载点为UBXJUNION，按实际配置更改
 #密码server001，按实际配置更改
+# linux
 str2str -in tcpsvr://:8899 -out ntrips://:server001@127.0.0.1:2101/UBXJUNION
+
 ```
 
 云服务器打开对应端口号8899，以及端口映射正确
 
-## 设备端
+## 设备端基站推流
 
-```
-#设备端口ttyACM0，按实际更改，有可能为ttyUSB0，在/dev/tty*查看
+```bash
+# 设备端口ttyACM0，按实际更改，有可能为ttyUSB0，在/dev/tty*查看
 str2str -in serial://ttyACM0:115200:8:n:1 -out tcpcli://[ip]:8899
 ```
 
 
+
+## 移动站拉流
+
+```bash
+# 如果是Windows，可以使用u-centor
+
+# linux
+# 从服务器拉到本地tcp服务上
+#用户名和密码是在clientmounts.aut中定义的组有访问权限的成员
+str2str -in ntrip://用户名:密码@139.196.97.222:2101/UBXJUNION -out tcpsvr://:7777 
+git clone git@github.com:HKUST-Aerial-Robotics/ublox_driver.git
+配置之后启动，发布ros消息
+
+# 或者直接发送到移动站，再从另外的端口读出来
+str2str -in ntrip://用户名:密码@139.196.97.222:2101/UBXJUNION -out serial://ttyACM1:115200:8:n:1
+读取串口解析数据
+
+```
 
